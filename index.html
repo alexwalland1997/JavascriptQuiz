@@ -20,7 +20,7 @@
         <p>
           Try to answer the following code-related questions within the time
           limit. Keep in mind that incorrect answers will penalize your
-          score/time by ten seconds!
+          score/time by five seconds!
         </p>
         <button id="start">Start Quiz</button>
       </div>
@@ -39,10 +39,11 @@
         </p>
       </div>
 
-      <div id="feedback" class="feedback hide"></div>
+      <div id="feedback" class="feedback hide">
+        <p id="response"></p>
+      </div>
     </div>
-
-    <script src="./assets/js/questions.js"></script>
-    <script src="./assets/js/logic.js"></script>
+    <!--altered javascript to type module in order to use import/export -->
+    <script src="./assets/js/quiz.js" type="module"></script>
   </body>
 </html>
