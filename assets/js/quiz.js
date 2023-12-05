@@ -4,10 +4,13 @@ let questions = question;
 //counter for questions and currentscore
 let q = 0;
 let cScore = 0;
+let tCounter;
+
+//load high scores
+let hScore = [];
 
 //timer variable and text
 let timer = document.querySelector("#time");
-timer.textContent = 100;
 
 //variable for start button
 let start = document.querySelector("#start");
@@ -19,10 +22,24 @@ let response = document.querySelector("#response");
 
 //highscore section variables
 let fScore = document.querySelector("#final-score");
-let initials= document.querySelector("#intials");''
+let initials  = document.querySelector("#initials");''
 let end = document.querySelector("#submit");
 
+//call initialise function
+init();
+
+//set high score to local storage high score if there is any
+function init(){
+    let lHScore = JSON.parse(localStorage.getItem("hScore"));
+
+    if (lHScore !== null) {
+        hScore = lHScore;
+    }
+}
+
 start.addEventListener("click", function() {
+    tCounter = 60;
+    timer.textContent = tCounter;
     document.getElementById("start-screen").style.display = "none";
     startQuiz();
 });
@@ -70,4 +87,19 @@ function endGame(){
     document.getElementById("feedback").style.display = "none";
     document.getElementById("end-screen").style.display = "block";
 }
+
+end.addEventListener("click", function(event) {
+    let name = initials.value.trim();
+    if (hScore.length == 0  || hScore.length < 5) {
+        hScore.push({name, cScore});
+    } else if (hScore[4].cScore < cScore) {
+        hScore.pop();
+        hScore.push({name, cScore});
+    }
+
+    hScore.sort((a,b) => a.cScore > b.cScore ? -1:1);
+    localStorage.setItem('hiScores', JSON.stringify(hScore));
+    console.log(hScore);
+    window.location.href = "highscores.html";
+})
 }
