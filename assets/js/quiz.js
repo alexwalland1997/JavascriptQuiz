@@ -12,7 +12,6 @@ let hScore = [];
 
 //timer variable and quiz finished variable
 let timer = document.querySelector("#time");
-let finished;
 
 //variable for start button
 let start = document.querySelector("#start");
@@ -33,14 +32,12 @@ init();
 //set high score to local storage high score if there is any
 function init(){
     let lHScore = JSON.parse(localStorage.getItem("hiScores"));
-
     if (lHScore !== null) {
         hScore = lHScore;
     }
 }
 
 start.addEventListener("click", function() {
-    finished = false;
     tCounter = 60;
     document.getElementById("start-screen").style.display = "none";
     startQuiz();
