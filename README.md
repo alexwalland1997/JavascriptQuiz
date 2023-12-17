@@ -6,7 +6,7 @@ The purpose of this project was to use Javascript to create a timed quiz on Java
 
 ## Installation
 
-In order to run this download the repo and open the index.html file and click start to load the quiz once pressed the quiz will start and the timer will also count down. Once time is up or all questions have been answered you will be given the option to enter your initials that will update the scoreboard unless the score is 0.
+In order to run this download the repo and open the index.html file and click start to load the quiz once pressed the quiz will start and the timer will also count down. Once time is up or all questions have been answered you will be given the option to enter your initials that will update the scoreboard unless the score is 0. You  can also visit the quiz at https://alexwalland1997.github.io/JavascriptQuiz/ .
 
 ## Usage
 
